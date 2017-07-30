@@ -151,4 +151,10 @@ class BasicUserParseWorker(object):
         :return:
         """
         links = list(set(links))
-        [self.to_crawl.append(item) for item in links if item not in self.crawled and self.cur_links < self.max_links]
+        for link in links:
+            if self.cur_links == self.max_links:
+                break
+            else:
+                self.to_crawl.append(link)
+                self.cur_links += 1
+        results, next_page = worker.parse_text(str(text).strip().replace('\r\n', ''))
