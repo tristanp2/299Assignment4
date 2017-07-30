@@ -156,7 +156,7 @@ class BasicUserParseWorker(object):
         for link in links:
             crawl_set.add(link)
             self.cur_links = len(crawl_set)
-            if self.cur_links > self.max_links
+            if self.cur_links > self.max_links:
                 crawl_set.remove(link)
                 break
 
