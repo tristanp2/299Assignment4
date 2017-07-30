@@ -156,7 +156,7 @@ class BasicUserParseWorker(object):
                 break
             else:
                 self.to_crawl.append(link)
-                self.cur_links += 1
 
-        self.cur_links = list(set(self.cur_links))
+        self.to_crawl = list(set(self.to_crawl))
+        self.cur_links = len(self.to_crawl)
         results, next_page = worker.parse_text(str(text).strip().replace('\r\n', ''))
