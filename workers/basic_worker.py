@@ -151,8 +151,9 @@ class BasicUserParseWorker(object):
         :return:
         """
         links = list(set(links))
+        self.cur_links = len(self.to_crawl)
         for link in links:
-            if self.cur_links == self.max_links:
+            if self.cur_links >= self.max_links:
                 break
             else:
                 self.to_crawl.append(link)
