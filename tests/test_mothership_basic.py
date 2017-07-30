@@ -8,6 +8,7 @@ from workers.basic_worker import BasicUserParseWorker
 
 
 class TestMothershipBasic(unittest.TestCase):
+    """
     def test_mother_connection(self):
         def conn_and_send():
             while True:
@@ -28,9 +29,12 @@ class TestMothershipBasic(unittest.TestCase):
         addr = (address,port)
         sock = socket.socket()
 
-        test_t = threading.Thread(None, mother.run())
+        test_t = threading.Thread(None, conn_and_send())
         test_t.daemon = True
         test_t.start()
+        mother.run()
+    """
+        
 
     
     
