@@ -44,10 +44,10 @@ class TestWorkerBasic(unittest.TestCase):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
 
         worker.max_links = 0
-        before = worker.to_crawl[0]
+        before = worker.to_crawl[:]
         len_to_crawl_before = len(worker.to_crawl)
         worker.add_links("test.com")
-        after = worker.to_crawl[0]
+        after = worker.to_crawl[:]
         len_to_crawl_after = len(worker.to_crawl)
 
         self.assertEqual(before, after)
